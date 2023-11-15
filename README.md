@@ -20,7 +20,8 @@ Cuando seleccionas la opcion Ver de algun cliente, podes visualizar otro CRUD de
 y/o televisor. A tener un CRUD, tambien se pueden ver, agregar, modificar o eliminar dichos aparatos. Tambien cuenta con la posibilida de ordenarlos usando ID o la MARCA, de manera 
 ascendente o descendente, segun se elija.
 ### Resguardo de datos:
-La lista de clientes, los cuales incluyen sos dispositivos adqueridos, estan almacenados en una archivo .xml el cual funciona como base de datos. Este se deserializa cuando se inicia
-cuando se ingresa correctamente el usuario y se serializa cuando se cierra la aplicacion.
+La lista de clientes, los cuales incluyen sos dispositivos adqueridos, estan almacenados en una archivo .xml. Este se deserializa cuando se inicia cuando se ingresa correctamente el usuario y se serializa cuando se cierra la aplicacion.
+### BackUp:
+Se agrega la funcion de back up de la lista de los clientes. Con todas las funcionalidades del CRUD, permite resguardar los datos en una base de dato SQL. Ademas se agrego un boton "BackUp SQL" el cual permite visualizar los datos guardados en la base de datos. 
 ## Diagrama de clase
 ![ClassDiagram](https://github.com/AgustinDiLeone/DiLeone.Agustin.PrimerParcial/assets/123491937/94f88e1c-271f-4e7c-aded-86a648c4cddf)
