@@ -48,7 +48,7 @@
   <Cliente>
     <Cuit>20456799486</Cuit>
     <Nombre>Agustin Di Leone</Nombre>
-    <TipoCliente>Exento</TipoCliente>
+    <TipoCliente>ResponsableInscripto</TipoCliente>
     <Ubicacion>Lomas, Buenos Aires</Ubicacion>
     <Dispositivos>
       <DispositivoElectronico xsi:type="Televisor">

@@ -97,6 +97,7 @@ namespace WinForms
             frmAgregarCliente.ShowDialog();
             if (frmAgregarCliente.seCreoCliente)
             {
+                this.ado.AgregarCliente(frmAgregarCliente.cliente);
                 this.clientes.Add(frmAgregarCliente.cliente);
                 this.ActualizarVisor();
             }
@@ -115,6 +116,7 @@ namespace WinForms
             frmEliminar.ShowDialog();
             if (frmEliminar.Respuesta)
             {
+                this.ado.EliminarCliente(this.clientes[index]);
                 this.clientes.RemoveAt(index);
                 this.ActualizarVisor();
             }
