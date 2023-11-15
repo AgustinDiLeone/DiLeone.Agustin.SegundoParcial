@@ -41,17 +41,18 @@ namespace WinForms
 
 
 
-            
-                
-            //ClienteSql data2 = new ClienteSql(2,"Ricardo", 5181818182, "Buenos Aires", "ConsumidorFinal");
+            /*
 
+            Cliente data = new Cliente(5181818182, "Ricardo",  ETipos.ConsumidorFinal,"Buenos Aires");
+            //Cliente data2 = new Cliente(201685479584,"Agustin",ETipos.ResponsableInscripto, "Buenos Aires");
             //bool x = ado.AgregarCliente(data2);
 
-            ClienteSql data2 = new ClienteSql(3, "Agusuro", 5198160841638, "Cambiado", "Exento");
+            //Cliente data1 = new Cliente(201685479584, "Agustin", ETipos.ResponsableInscripto, "Buenos Aires");
+            Cliente data2 = new Cliente(10,"Agustin",ETipos.Exento, "Buenos Aires");
+            //bool x = ado.AgregarCliente(data2);
+            //bool y = ado.ModificarCliente(data1 ,data2);
 
-            bool y = ado.ModificarCliente(data2);
-
-            bool z = ado.EliminarCliente(data2);
+            bool z = ado.EliminarCliente(data);
 
             List<ClienteSql> listaDatos = ado.ObtenerListaCliente();
 
@@ -59,6 +60,7 @@ namespace WinForms
             {
                 MessageBox.Show(dato.ToString());
             }
+            */
         }
 
         private void ActualizarVisor()

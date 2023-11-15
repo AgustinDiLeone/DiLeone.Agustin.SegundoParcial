@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using Entidades;
 namespace SQL
 {
     public class AccesoDatos
@@ -87,14 +88,14 @@ namespace SQL
 
         }
 
-        public bool AgregarCliente(ClienteSql cliente)
+        public bool AgregarCliente(Cliente cliente)
         {
             bool retorno = false;
             try
             {
                 this.comando = new SqlCommand();
                 this.comando.CommandType = System.Data.CommandType.Text;
-                this.comando.CommandText = "Insert into ClienteSql(Nombre,Cuit,Ubicacion,Tipo) values('" + cliente.nombre + "'," + cliente.cuit + ",'" + cliente.ubicacion + "','" + cliente.tipo + "')";
+                this.comando.CommandText = "Insert into ClienteSql(Nombre,Cuit,Ubicacion,Tipo) values('" + cliente.Nombre + "'," + cliente.Cuit + ",'" + cliente.Ubicacion + "','" + cliente.TipoCliente + "')";
                 this.comando.Connection = this.conexion;
 
                 this.conexion.Open();
@@ -117,19 +118,20 @@ namespace SQL
             }
             return retorno;
         }
-        public bool ModificarCliente(ClienteSql cliente)
+        public bool ModificarCliente(Cliente clienteViejo, Cliente cliente)
         {
             bool retorno = false;
             try
             {
                 this.comando = new SqlCommand();
-                this.comando.Parameters.AddWithValue("@Id", cliente.id);
-                this.comando.Parameters.AddWithValue("@Nombre", cliente.nombre);
-                this.comando.Parameters.AddWithValue("@Cuit", cliente.cuit);
-                this.comando.Parameters.AddWithValue("@Ubicacion", cliente.ubicacion);
-                this.comando.Parameters.AddWithValue("@Tipo", cliente.tipo);
+                this.comando.Parameters.AddWithValue("@Nombre", cliente.Nombre);
+                this.comando.Parameters.AddWithValue("@Cuit", cliente.Cuit);
+                this.comando.Parameters.AddWithValue("@Ubicacion", cliente.Ubicacion);
+                this.comando.Parameters.AddWithValue("@Tipo", cliente.TipoCliente);
+                this.comando.Parameters.AddWithValue("@NombreViejo", clienteViejo.Nombre);
+                this.comando.Parameters.AddWithValue("@CuitViejo", clienteViejo.Cuit);
                 this.comando.CommandType = System.Data.CommandType.Text;
-                this.comando.CommandText = "Update ClienteSql Set nombre = @Nombre, cuit = @Cuit , ubicacion = @Ubicacion where id = @Id";
+                this.comando.CommandText = $"Update ClienteSql Set Nombre = @Nombre, Cuit = @Cuit , Ubicacion = @Ubicacion where Nombre = @NombreViejo AND Cuit = @CuitViejo";
                 this.comando.Connection = this.conexion;
 
                 this.conexion.Open();
@@ -154,15 +156,16 @@ namespace SQL
             }
             return retorno;
         }
-        public bool EliminarCliente(ClienteSql cliente)
+        public bool EliminarCliente(Cliente cliente)
         {
             bool retorno = false;
             try
             {
                 this.comando = new SqlCommand();
-                this.comando.Parameters.AddWithValue("@id", cliente.id);
+                this.comando.Parameters.AddWithValue("@Nombre", cliente.Nombre);
+                this.comando.Parameters.AddWithValue("@Cuit", cliente.Cuit);
                 this.comando.CommandType = System.Data.CommandType.Text;
-                this.comando.CommandText = "DELETE FROM ClienteSql WHERE id = @Id"; ;
+                this.comando.CommandText = "DELETE FROM ClienteSql WHERE Nombre = @Nombre AND Cuit = @Cuit";
                 this.comando.Connection = this.conexion;
 
                 this.conexion.Open();
