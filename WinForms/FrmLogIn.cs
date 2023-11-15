@@ -19,6 +19,9 @@ namespace WinForms
         {
             InitializeComponent();
             this.CenterToScreen();
+            txtClave.Text = "12345678";
+            txtCorreo.Text = "admin@admin.com";
+
         }
 
         private void BtnAceptar_Click(object sender, EventArgs e)

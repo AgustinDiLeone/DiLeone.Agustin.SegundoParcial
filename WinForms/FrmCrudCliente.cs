@@ -26,6 +26,16 @@ namespace WinForms
             this.StartPosition = FormStartPosition.CenterScreen;
             BtnCaracteristicaUno.Text = "NOMBRE";
             BtnCaracteristicaDos.Text = "CUIT";
+            if (usuario.perfil == "supervisor")
+            {
+                BtnEliminar.Enabled = false;
+            }
+            else if (usuario.perfil == "vendedor")
+            {
+                BtnEliminar.Enabled = false;
+                BtnModificar.Enabled = false;
+                BtnAgregar.Enabled = false;
+            }
         }
 
         private void ActualizarVisor()
@@ -178,6 +188,14 @@ namespace WinForms
             this.ActualizarVisor();
 
         }
+        private void FrmCrudCliente_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Estas seguro de cerrar la aplicacion", "ATENCION", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.No)
+            {
+                e.Cancel = true; // Evita el cierre del formulario
+            }
+        }
 
         private void FrmCrudCliente_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -218,5 +236,6 @@ namespace WinForms
             }
 
         }
+
     }
 }

@@ -215,8 +215,6 @@
             Controls.Add(lstBox);
             Name = "FrmCrud";
             Text = "FrmCrud";
-            FormClosing += FrmCrudCliente_FormClosing;
-            FormClosed += FrmCrud_FormClosed;
             Load += FrmCrud_Load;
             grpOrdenCarac.ResumeLayout(false);
             grpOrdenCarac.PerformLayout();

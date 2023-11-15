@@ -28,8 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            grpOrdenCarac.SuspendLayout();
             grpOrden.SuspendLayout();
             SuspendLayout();
+            // 
+            // LblUsuarioConectado
+            // 
+            LblUsuarioConectado.Size = new Size(0, 15);
+            LblUsuarioConectado.Text = "";
             // 
             // FrmCrudCliente
             // 
@@ -38,8 +44,11 @@
             ClientSize = new Size(800, 450);
             Name = "FrmCrudCliente";
             Text = "FrmCrudCliente";
+            FormClosing += FrmCrudCliente_FormClosing;
             FormClosed += FrmCrudCliente_FormClosed;
             Load += FrmCrudCliente_Load;
+            grpOrdenCarac.ResumeLayout(false);
+            grpOrdenCarac.PerformLayout();
             grpOrden.ResumeLayout(false);
             grpOrden.PerformLayout();
             ResumeLayout(false);

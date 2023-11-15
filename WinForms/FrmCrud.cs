@@ -88,18 +88,6 @@ namespace WinForms
 
         }
         
-        private void FrmCrudCliente_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Estas seguro de cerrar la aplicacion", "ATENCION", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.No)
-            {
-                e.Cancel = true; // Evita el cierre del formulario
-            }
-        }
-        private void FrmCrud_FormClosed(object sender, FormClosedEventArgs e)
-        {
-
-        }
     }
 }
 

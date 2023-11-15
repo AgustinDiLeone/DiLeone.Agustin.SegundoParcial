@@ -51,6 +51,17 @@
     <TipoCliente>Exento</TipoCliente>
     <Ubicacion>Lomas, Buenos Aires</Ubicacion>
     <Dispositivos>
+      <DispositivoElectronico xsi:type="Televisor">
+        <Id>6</Id>
+        <Cantidad>4465</Cantidad>
+        <Marca>Samsung</Marca>
+        <Modelo>DSS58</Modelo>
+        <PrecioUnitario>25625</PrecioUnitario>
+        <TipoFactura>B</TipoFactura>
+        <Pulgadas>100</Pulgadas>
+        <Resolucion>4000</Resolucion>
+        <SmartTv>true</SmartTv>
+      </DispositivoElectronico>
       <DispositivoElectronico xsi:type="Notebook">
         <Id>4</Id>
         <Cantidad>879</Cantidad>
@@ -78,17 +89,6 @@
         <Ram>24</Ram>
         <SistemaOperativo>ios 11</SistemaOperativo>
         <Ssd>true</Ssd>
-      </DispositivoElectronico>
-      <DispositivoElectronico xsi:type="Televisor">
-        <Id>6</Id>
-        <Cantidad>4465</Cantidad>
-        <Marca>Samsung</Marca>
-        <Modelo>DSS58</Modelo>
-        <PrecioUnitario>25625</PrecioUnitario>
-        <TipoFactura>B</TipoFactura>
-        <Pulgadas>100</Pulgadas>
-        <Resolucion>4000</Resolucion>
-        <SmartTv>true</SmartTv>
       </DispositivoElectronico>
     </Dispositivos>
   </Cliente>

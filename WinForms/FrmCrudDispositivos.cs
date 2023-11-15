@@ -22,6 +22,16 @@ namespace WinForms
             this.cliente = cliente;
             BtnCaracteristicaUno.Text = "ID";
             BtnCaracteristicaDos.Text = "MARCA";
+            if (usuario.perfil == "supervisor")
+            {
+                BtnEliminar.Enabled = false;
+            }
+            else if (usuario.perfil == "vendedor")
+            {
+                BtnEliminar.Enabled = false;
+                BtnModificar.Enabled = false;
+                BtnAgregar.Enabled = false;
+            }
         }
 
         private void ActualizarForm()
