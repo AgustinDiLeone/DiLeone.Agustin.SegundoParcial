@@ -18,6 +18,7 @@ namespace WinForms
     public partial class FrmCrudCliente : FrmCrud
     {
         private List<Cliente> clientes;
+        private List<Cliente> clientesSql;
         private Usuario usuario;
 
 
@@ -37,9 +38,6 @@ namespace WinForms
                 BtnModificar.Enabled = false;
                 BtnAgregar.Enabled = false;
             }
-            AccesoDatos ado = new AccesoDatos();
-
-
 
             /*
 
@@ -210,6 +208,12 @@ namespace WinForms
                 this.clientes = new List<Cliente>();
             this.usuarios.Add(base.datosUsuarioIngresado);
             this.SerializacionLog(this.datosUsuarioIngresado, @"..\..\..\..\WinForms\Usuarios.log");
+            AccesoDatos ado = new AccesoDatos();
+            this.clientesSql = ado.ObtenerListaCliente();
+            foreach (Cliente cliente in this.clientesSql)
+            {
+                MessageBox.Show(cliente.ToString());
+            }
             this.ActualizarVisor();
 
         }

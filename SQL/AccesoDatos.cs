@@ -44,9 +44,9 @@ namespace SQL
             return retorno;
         }
 
-        public List<ClienteSql> ObtenerListaCliente()
+        public List<Cliente> ObtenerListaCliente()
         {
-            List<ClienteSql> lista = new List<ClienteSql>();
+            List<Cliente> lista = new List<Cliente>();
 
             try
             {
@@ -60,13 +60,12 @@ namespace SQL
 
                 while (this.lector.Read()) //devuelve true si tiene mas para leer
                 {
-                    ClienteSql cliente = new ClienteSql();
-                    cliente.id = (int)this.lector[0]; //le indicas el nombre de la columna
-                    cliente.nombre = this.lector[1].ToString(); // le indicas el indice
-                    cliente.cuit = (long)this.lector[2];
-                    cliente.ubicacion = this.lector[3].ToString();
-                    cliente.tipo = this.lector[4].ToString();
-
+                    Cliente cliente = new Cliente();
+                    cliente.Nombre = this.lector[1].ToString(); // le indicas el indice
+                    cliente.Cuit = (long)this.lector[2];
+                    cliente.Ubicacion = this.lector[3].ToString();
+                    cliente.TipoCliente = (ETipos)Enum.Parse(typeof(ETipos), (string)this.lector[4]);
+                    
                     lista.Add(cliente);
                 }
 
