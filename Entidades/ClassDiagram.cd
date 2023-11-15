@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Entidades.Cliente">
+    <Position X="11.5" Y="1.25" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AIAAQAAAAAAEQAAEwEEAwIAAAAAAQAAEAAAAhAAAAmA=</HashCode>
+      <FileName>Cliente.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entidades.DispositivoElectronico">
+    <Position X="6.5" Y="1.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AQASABEAAAAUBAAEgAQAAAAAAAAAABAAAAgAAAAIAiA=</HashCode>
+      <FileName>DispositivoElectronico.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entidades.Celular">
+    <Position X="3.75" Y="7.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAECAAEAAAACAAAAAgAAAACCAAAAggAAAA=</HashCode>
+      <FileName>Celular.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entidades.Notebook">
+    <Position X="6.75" Y="7.5" Width="2.5" />
+    <InheritanceLine Type="Entidades.DispositivoElectronico" ManuallyRouted="true">
+      <Path>
+        <Point X="8" Y="6.141" />
+        <Point X="8" Y="6.876" />
+        <Point X="8" Y="6.876" />
+        <Point X="8" Y="7.5" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>EEAgAAAAAAAECAQEAAAECAAAABgAAAAACAAAAAhAAAA=</HashCode>
+      <FileName>Notebook.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entidades.Televisor">
+    <Position X="9.75" Y="7.5" Width="2.5" />
+    <InheritanceLine Type="Entidades.DispositivoElectronico" ManuallyRouted="true">
+      <Path>
+        <Point X="8" Y="6.141" />
+        <Point X="8" Y="6.876" />
+        <Point X="11" Y="6.876" />
+        <Point X="11" Y="7.5" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAEAAREAAAEAAAAAAAAAAAACAAAAAgAAAA=</HashCode>
+      <FileName>Televisor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entidades.Usuario">
+    <Position X="2.25" Y="2.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQBAACAAAAAAAAAAAQAAACAAAAQAAAAAAA=</HashCode>
+      <FileName>Usuario.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Entidades.ETipos">
+    <Position X="13" Y="7.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAEAEAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>Enumerados.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Entidades.EFactura">
+    <Position X="13" Y="9.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAoAEAAAA=</HashCode>
+      <FileName>Enumerados.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

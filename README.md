@@ -1,0 +1,26 @@
+# CRUD - Dispositivos electronicos
+## Alumno: Agustin Di Leone
+Yo soy Agustin Di Leone, tengo 19 años y vivo en Lanus, Buenos Aires. Estoy cursando la carrera Tecnico en Programacion en la Universidad Tecnologica Nacional en Avellaneda.
+Este proyecto fue creado por mi persona, como entrega del primer parcial de Lboratorio II. Trate de implementar todos los conocimientos adquiridos durante la primer parte de 
+dicha materia junto a Prgramacion II que van de la mano.
+## Programa CRUD
+La aplicacion que programe sirve para el ingreso de distintos clientes los cuales son registrados por nombre, cuit, que tipo de clientes son y donde se ubican, los cuales
+contienen una listas de distintos dispositivos que compraron. Estos pueden ser celulares, notebooks y/o televisores. 
+La aplicacion premite:
+### Log In:
+El ingreso de ciertos usuarios pidiendo correo y contraseña, verificandolo con el uso de un archivo .json, que contiene los usuarios autorizados a modo de base de datos. 
+### Usuario Ingresado:
+En los Winddows Form siempre esta la posibilidad de ver que usuario es el que esta ejecutando el programa con el horario de inicio de sesion. Ademas de poder visualizar
+todos los inicios de sesion, detallando usuario y hora, almacenandolo en un archivo .log.
+### Clientes:
+Un Windows Form que contiene todos los clientes de la empresa. Un CRUD el cual permite agregar, modificar, ver y eliminar dichos clientes. Ademas de la posibilidad de oredenarlos
+en el visor por medio de su nombre o cuit, ya sea de forma ascendente o descendiente.
+### Dispositivos Electronicos:
+Cuando seleccionas la opcion Ver de algun cliente, podes visualizar otro CRUD de los dispositivos adqueridos por dicho cliente. Estos dispositivos pueden ser del tipo celular, notebook
+y/o televisor. A tener un CRUD, tambien se pueden ver, agregar, modificar o eliminar dichos aparatos. Tambien cuenta con la posibilida de ordenarlos usando ID o la MARCA, de manera 
+ascendente o descendente, segun se elija.
+### Resguardo de datos:
+La lista de clientes, los cuales incluyen sos dispositivos adqueridos, estan almacenados en una archivo .xml el cual funciona como base de datos. Este se deserializa cuando se inicia
+cuando se ingresa correctamente el usuario y se serializa cuando se cierra la aplicacion.
+## Diagrama de clase
+![ClassDiagram](https://github.com/AgustinDiLeone/DiLeone.Agustin.PrimerParcial/assets/123491937/94f88e1c-271f-4e7c-aded-86a648c4cddf)
