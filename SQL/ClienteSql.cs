@@ -28,7 +28,12 @@ namespace SQL
 
         public override string ToString()
         {
-            return $"ID: {id} - Nombre: {nombre} - Cuit: {cuit} - Ubicacion: {ubicacion} - Tipo: {tipo}";
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine($"Nombre: {nombre}");
+            sb.AppendLine($"Cuit: {cuit}");
+            sb.AppendLine($"Ubicacion: {ubicacion}");
+            sb.AppendLine($"Tipo: {tipo}");
+            return sb.ToString();
         }
     }
 }

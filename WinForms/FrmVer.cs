@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -23,7 +24,7 @@ namespace WinForms
             this.StartPosition = FormStartPosition.CenterScreen;
 
         }
-        public FrmVer(DispositivoElectronico dispositivo):this()
+        public FrmVer(DispositivoElectronico dispositivo) : this()
         {
             this.dispositivo = dispositivo;
         }
@@ -31,7 +32,7 @@ namespace WinForms
         {
             this.usuarios = usuarios;
         }
-        public FrmVer(List<ClienteSql> listaClientes):this()
+        public FrmVer(List<ClienteSql> listaClientes) : this()
         {
             this.listaClientes = listaClientes;
         }
@@ -43,30 +44,39 @@ namespace WinForms
 
         private void FrmVer_Load(object sender, EventArgs e)
         {
-            TxtDispositivo.SelectionStart = 0;
-            TxtDispositivo.SelectionLength = 0;
+            TxtDispositivos.SelectionStart = 0;
+            TxtDispositivos.SelectionLength = 0;
             if (this.usuarios != null)
             {
                 foreach (string user in this.usuarios)
                 {
-                    TxtDispositivo.Text += (user + Environment.NewLine);
+                    TxtDispositivos.Text += (user + Environment.NewLine);
                 }
 
             }
             else if (this.dispositivo != null)
             {
-                TxtDispositivo.Text = this.dispositivo.ToString();
+                TxtDispositivos.Text = this.dispositivo.ToString();
             }
             else
             {
+                TxtDispositivos.Text = "Clientes registrados \n \n";
+                TxtDispositivos.Text += "-----------------------------\n";
                 foreach (ClienteSql cliente in this.listaClientes)
                 {
-                    TxtDispositivo.Text += (cliente.ToString() + Environment.NewLine);
+                    TxtDispositivos.Text += (cliente.ToString() + Environment.NewLine);
+                    TxtDispositivos.Text += "----------------------------\n";
                 }
+
             }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtDispositivos_TextChanged(object sender, EventArgs e)
         {
 
         }

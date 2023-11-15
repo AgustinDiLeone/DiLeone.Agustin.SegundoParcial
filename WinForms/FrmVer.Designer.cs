@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             BtnVolver = new Button();
-            TxtDispositivo = new TextBox();
+            TxtDispositivos = new RichTextBox();
             SuspendLayout();
             // 
             // BtnVolver
@@ -42,33 +42,30 @@
             BtnVolver.UseVisualStyleBackColor = true;
             BtnVolver.Click += BtnVolver_Click;
             // 
-            // TxtDispositivo
+            // TxtDispositivos
             // 
-            TxtDispositivo.Location = new Point(26, 41);
-            TxtDispositivo.Multiline = true;
-            TxtDispositivo.Name = "TxtDispositivo";
-            TxtDispositivo.ReadOnly = true;
-            TxtDispositivo.ScrollBars = ScrollBars.Vertical;
-            TxtDispositivo.Size = new Size(396, 329);
-            TxtDispositivo.TabIndex = 2;
-            TxtDispositivo.TextChanged += textBox1_TextChanged;
+            TxtDispositivos.Location = new Point(26, 27);
+            TxtDispositivos.Name = "TxtDispositivos";
+            TxtDispositivos.Size = new Size(396, 347);
+            TxtDispositivos.TabIndex = 2;
+            TxtDispositivos.Text = "";
+            TxtDispositivos.TextChanged += TxtDispositivos_TextChanged;
             // 
             // FrmVer
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(459, 454);
-            Controls.Add(TxtDispositivo);
+            Controls.Add(TxtDispositivos);
             Controls.Add(BtnVolver);
             Name = "FrmVer";
             Text = "FrmVer";
             Load += FrmVer_Load;
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
         private Button BtnVolver;
-        private TextBox TxtDispositivo;
+        private RichTextBox TxtDispositivos;
     }
 }
