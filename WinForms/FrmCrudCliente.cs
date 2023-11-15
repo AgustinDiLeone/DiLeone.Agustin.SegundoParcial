@@ -1,4 +1,5 @@
 ﻿using Entidades;
+using SQL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -35,6 +36,28 @@ namespace WinForms
                 BtnEliminar.Enabled = false;
                 BtnModificar.Enabled = false;
                 BtnAgregar.Enabled = false;
+            }
+            AccesoDatos ado = new AccesoDatos();
+
+
+
+            
+                
+            //ClienteSql data2 = new ClienteSql(2,"Ricardo", 5181818182, "Buenos Aires", "ConsumidorFinal");
+
+            //bool x = ado.AgregarCliente(data2);
+
+            ClienteSql data2 = new ClienteSql(3, "Agusuro", 5198160841638, "Cambiado", "Exento");
+
+            bool y = ado.ModificarCliente(data2);
+
+            bool z = ado.EliminarCliente(data2);
+
+            List<ClienteSql> listaDatos = ado.ObtenerListaCliente();
+
+            foreach (ClienteSql dato in listaDatos)
+            {
+                MessageBox.Show(dato.ToString());
             }
         }
 
@@ -236,6 +259,7 @@ namespace WinForms
             }
 
         }
+
 
     }
 }
