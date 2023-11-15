@@ -18,7 +18,7 @@ namespace WinForms
     public partial class FrmCrudCliente : FrmCrud
     {
         private List<Cliente> clientes;
-        private List<Cliente> clientesSql;
+        private List<ClienteSql> clientesSql;
         private AccesoDatos ado;
         private Usuario usuario;
 
@@ -264,6 +264,11 @@ namespace WinForms
 
         }
 
-
+        private void BtnBackUp_Click(object sender, EventArgs e)
+        {
+            this.clientesSql = ado.ObtenerListaCliente();
+            FrmVer frmVerBackUp = new FrmVer(this.clientesSql);
+            frmVerBackUp.Show();
+        }
     }
 }

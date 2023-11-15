@@ -1,4 +1,5 @@
 ﻿using Entidades;
+using SQL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,11 +16,11 @@ namespace WinForms
     {
         private DispositivoElectronico dispositivo;
         private List<string> usuarios;
+        private List<ClienteSql> listaClientes;
         public FrmVer()
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
-
 
         }
         public FrmVer(DispositivoElectronico dispositivo):this()
@@ -29,6 +30,10 @@ namespace WinForms
         public FrmVer(List<string> usuarios) : this()
         {
             this.usuarios = usuarios;
+        }
+        public FrmVer(List<ClienteSql> listaClientes):this()
+        {
+            this.listaClientes = listaClientes;
         }
 
         private void BtnVolver_Click(object sender, EventArgs e)
@@ -48,8 +53,17 @@ namespace WinForms
                 }
 
             }
-            else 
+            else if (this.dispositivo != null)
+            {
                 TxtDispositivo.Text = this.dispositivo.ToString();
+            }
+            else
+            {
+                foreach (ClienteSql cliente in this.listaClientes)
+                {
+                    TxtDispositivo.Text += (cliente.ToString() + Environment.NewLine);
+                }
+            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

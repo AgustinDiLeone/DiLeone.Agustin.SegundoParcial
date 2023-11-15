@@ -82,7 +82,12 @@ namespace Entidades
 
         public static bool operator ==(DispositivoElectronico a, DispositivoElectronico b)
         {
-            return a.id == b.id && a.modelo == b.modelo;
+            if (ReferenceEquals(a, null) && ReferenceEquals(b, null))
+                return true;
+            else if (!ReferenceEquals(a, null) && !ReferenceEquals(b, null) && a.id == b.id && a.modelo == b.modelo)
+                return true;
+            else
+                return false;
         }
         public static bool operator !=(DispositivoElectronico a, DispositivoElectronico b)
         {
