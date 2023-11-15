@@ -19,6 +19,7 @@ namespace WinForms
     {
         private List<Cliente> clientes;
         private List<Cliente> clientesSql;
+        private AccesoDatos ado;
         private Usuario usuario;
 
 
@@ -28,6 +29,7 @@ namespace WinForms
             this.StartPosition = FormStartPosition.CenterScreen;
             BtnCaracteristicaUno.Text = "NOMBRE";
             BtnCaracteristicaDos.Text = "CUIT";
+            this.ado = new AccesoDatos();
             if (usuario.perfil == "supervisor")
             {
                 BtnEliminar.Enabled = false;
@@ -130,6 +132,7 @@ namespace WinForms
             frmAgregarCliente.ShowDialog();
             if (frmAgregarCliente.seCreoCliente)
             {
+                this.ado.ModificarCliente(this.clientes[index], frmAgregarCliente.cliente);
                 frmAgregarCliente.cliente.Dispositivos = this.clientes[index].Dispositivos;
                 this.clientes[index] = frmAgregarCliente.cliente;
                 this.ActualizarVisor();
@@ -208,12 +211,7 @@ namespace WinForms
                 this.clientes = new List<Cliente>();
             this.usuarios.Add(base.datosUsuarioIngresado);
             this.SerializacionLog(this.datosUsuarioIngresado, @"..\..\..\..\WinForms\Usuarios.log");
-            AccesoDatos ado = new AccesoDatos();
-            this.clientesSql = ado.ObtenerListaCliente();
-            foreach (Cliente cliente in this.clientesSql)
-            {
-                MessageBox.Show(cliente.ToString());
-            }
+            this.clientesSql = this.ado.ObtenerListaCliente();
             this.ActualizarVisor();
 
         }

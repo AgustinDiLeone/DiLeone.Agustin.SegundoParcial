@@ -87,9 +87,8 @@ namespace SQL
 
         }
 
-        public bool AgregarCliente(Cliente cliente)
+        public void AgregarCliente(Cliente cliente)
         {
-            bool retorno = false;
             try
             {
                 this.comando = new SqlCommand();
@@ -102,11 +101,14 @@ namespace SQL
                 int filasAfectadas = this.comando.ExecuteNonQuery();
 
                 if (filasAfectadas == 1)
-                    retorno = true;
+                {
+
+                }
+                    
             }
             catch (Exception ex)
             {
-
+                throw new Exception(ex.Message);
             }
             finally
             {
@@ -115,11 +117,9 @@ namespace SQL
                     this.conexion.Close();
                 }
             }
-            return retorno;
         }
-        public bool ModificarCliente(Cliente clienteViejo, Cliente cliente)
+        public void ModificarCliente(Cliente clienteViejo, Cliente cliente)
         {
-            bool retorno = false;
             try
             {
                 this.comando = new SqlCommand();
@@ -139,12 +139,12 @@ namespace SQL
 
                 if (filasAfectadas == 1)
                 {
-                    retorno = true;
+                    
                 }
             }
             catch (Exception ex)
             {
-
+                throw new Exception(ex.ToString());
             }
             finally
             {
@@ -153,11 +153,9 @@ namespace SQL
                     this.conexion.Close();
                 }
             }
-            return retorno;
         }
-        public bool EliminarCliente(Cliente cliente)
+        public void EliminarCliente(Cliente cliente)
         {
-            bool retorno = false;
             try
             {
                 this.comando = new SqlCommand();
@@ -173,12 +171,12 @@ namespace SQL
 
                 if (filasAfectadas == 1)
                 {
-                    retorno = true;
+
                 }
             }
             catch (Exception ex)
             {
-
+                throw new Exception(ex.ToString());
             }
             finally
             {
@@ -187,7 +185,6 @@ namespace SQL
                     this.conexion.Close();
                 }
             }
-            return retorno;
         }
     }
 }

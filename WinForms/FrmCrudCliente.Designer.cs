@@ -32,6 +32,10 @@
             grpOrden.SuspendLayout();
             SuspendLayout();
             // 
+            // BtnVer
+            // 
+            BtnVer.Size = new Size(133, 29);
+            // 
             // LblUsuarioConectado
             // 
             LblUsuarioConectado.Size = new Size(0, 15);
