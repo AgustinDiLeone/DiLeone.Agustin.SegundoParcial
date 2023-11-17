@@ -23,5 +23,7 @@ ascendente o descendente, segun se elija.
 La lista de clientes, los cuales incluyen sos dispositivos adqueridos, estan almacenados en una archivo .xml. Este se deserializa cuando se inicia cuando se ingresa correctamente el usuario y se serializa cuando se cierra la aplicacion.
 ### BackUp:
 Se agrega la funcion de back up de la lista de los clientes. Con todas las funcionalidades del CRUD, permite resguardar los datos en una base de dato SQL. Ademas se agrego un boton "BackUp SQL" el cual permite visualizar los datos guardados en la base de datos. 
+### Test Unitarios
+Contiene un proyecto de tipo Test donde se diseñaron algunos metodos para probar el correcto funcionamiento de la aplicacion.
 ## Diagrama de clase
 ![ClassDiagram](https://github.com/AgustinDiLeone/DiLeone.Agustin.PrimerParcial/assets/123491937/94f88e1c-271f-4e7c-aded-86a648c4cddf)
