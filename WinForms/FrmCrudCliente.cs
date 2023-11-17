@@ -41,26 +41,6 @@ namespace WinForms
                 BtnAgregar.Enabled = false;
             }
 
-            /*
-
-            Cliente data = new Cliente(5181818182, "Ricardo",  ETipos.ConsumidorFinal,"Buenos Aires");
-            //Cliente data2 = new Cliente(201685479584,"Agustin",ETipos.ResponsableInscripto, "Buenos Aires");
-            //bool x = ado.AgregarCliente(data2);
-
-            //Cliente data1 = new Cliente(201685479584, "Agustin", ETipos.ResponsableInscripto, "Buenos Aires");
-            Cliente data2 = new Cliente(10,"Agustin",ETipos.Exento, "Buenos Aires");
-            //bool x = ado.AgregarCliente(data2);
-            //bool y = ado.ModificarCliente(data1 ,data2);
-
-            bool z = ado.EliminarCliente(data);
-
-            List<ClienteSql> listaDatos = ado.ObtenerListaCliente();
-
-            foreach (ClienteSql dato in listaDatos)
-            {
-                MessageBox.Show(dato.ToString());
-            }
-            */
         }
 
         private void ActualizarVisor()

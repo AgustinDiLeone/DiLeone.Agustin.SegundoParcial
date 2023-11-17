@@ -46,6 +46,7 @@ namespace WinForms
         private void FrmManejoDispositivo_Load(object sender, EventArgs e)
         {
             var tipos = EFactura.GetValues(typeof(EFactura));
+            CmbTipo.DropDownStyle = ComboBoxStyle.DropDownList;
             CmbTipo.DataSource = tipos;
         }
 

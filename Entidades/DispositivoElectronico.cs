@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using Exceptions;
+using System.Text;
 
 namespace Entidades
 {

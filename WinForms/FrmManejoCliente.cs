@@ -34,7 +34,7 @@ namespace WinForms
         private void FrmAgregarCliente_Load(object sender, EventArgs e)
         {
             var tipos= ETipos.GetValues(typeof(ETipos));
-
+            CmbTipo.DropDownStyle = ComboBoxStyle.DropDownList;
             CmbTipo.DataSource = tipos;
         }
 
