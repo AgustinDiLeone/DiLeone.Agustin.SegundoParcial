@@ -46,6 +46,15 @@ namespace Test
             Televisor televisorUno = new Televisor(20, 400, 100000, "UTP350", "LG", EFactura.C, 1080, 100.5);
             Televisor televisoDos = new Televisor(20, 400, 100000, "UTP350", "LG", EFactura.C, 1080, 100.5);
 
+            cliente += televisorUno;
+            cliente += televisorUno;
+
+            //Deberia solo agregar el primero, porque son el mismo dispositivo. 
+            //Por lo que deberia haber un unico dispositivo
+            int dispositivosAgregados = cliente.Dispositivos.Count;
+            int dispositivosEsperados = 1;
+            
+            Assert.AreEqual(dispositivosEsperados, dispositivosAgregados);
         }
     }
 }
