@@ -39,7 +39,16 @@ namespace Test
 
         }
         [TestMethod]
-        public void Celular()
+        public void Cliente()
+        {
+            Cliente cliente = new Cliente(22148528585, "Sura",ETipos.ResponsableInscripto,"Lanus");
+
+            List<DispositivoElectronico> celulares = cliente.Dispositivos;
+
+            Assert.IsNotNull(celulares);
+        }
+        [TestMethod]
+        public void ClienteDefault()
         {
             Cliente cliente = new Cliente();
 
