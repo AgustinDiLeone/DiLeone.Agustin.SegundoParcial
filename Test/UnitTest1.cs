@@ -39,12 +39,20 @@ namespace Test
 
         }
         [TestMethod]
+        public void Celular()
+        {
+            Cliente cliente = new Cliente();
+
+            List<DispositivoElectronico> celulares = cliente.Dispositivos;
+
+            Assert.IsNotNull(celulares);
+        }
+        [TestMethod]
         public void AgregarTelevisoresFalla()
         {
             //Arrange
             Cliente cliente = new Cliente(16913167521, "Agustin", ETipos.ResponsableInscripto, "Buenos Aires");
             Televisor televisorUno = new Televisor(20, 400, 100000, "UTP350", "LG", EFactura.C, 1080, 100.5);
-            Televisor televisoDos = new Televisor(20, 400, 100000, "UTP350", "LG", EFactura.C, 1080, 100.5);
 
             cliente += televisorUno;
             cliente += televisorUno;
