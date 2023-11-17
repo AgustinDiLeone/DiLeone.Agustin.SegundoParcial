@@ -1,7 +1,9 @@
 ﻿namespace Exceptions
 {
-    public class IgualDsipositivo : Exception
+    public class ProblemasSql : Exception
     {
-
+        public ProblemasSql(string mensaje) : base(mensaje)
+        {
+        }
     }
 }

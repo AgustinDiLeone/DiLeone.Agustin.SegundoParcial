@@ -1,5 +1,7 @@
 ﻿using Microsoft.Data.SqlClient;
 using Entidades;
+using Exceptions;
+
 namespace SQL
 {
     public class AccesoDatos
@@ -18,30 +20,6 @@ namespace SQL
         {
 
             this.conexion = new SqlConnection(AccesoDatos.cadena_conexion);
-        }
-        public bool ProbarConexion()
-        {
-            bool retorno = false;
-
-            try
-            {
-                this.conexion.Open();
-                retorno = true;
-            }
-            catch (Exception ex)
-            {
-
-            }
-            finally
-            {
-                if (this.conexion.State == System.Data.ConnectionState.Open)
-                {
-                    this.conexion.Close();
-                }
-
-            }
-
-            return retorno;
         }
 
         public List<ClienteSql> ObtenerListaCliente()
@@ -70,11 +48,11 @@ namespace SQL
                 }
 
                 this.lector.Close();
-
+                
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-
+                throw new ProblemasSql("No se pudo obtener la lista de clientes de sql");
             }
             finally
             {
@@ -106,9 +84,9 @@ namespace SQL
                 }
                     
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new Exception(ex.Message);
+                throw new ProblemasSql("No se pudo agregar cliente en sql");
             }
             finally
             {
@@ -142,9 +120,9 @@ namespace SQL
                     
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new Exception(ex.ToString());
+                throw new ProblemasSql("No se pudo modificar cliente en sql");
             }
             finally
             {
@@ -174,9 +152,9 @@ namespace SQL
 
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new Exception(ex.ToString());
+                throw new ProblemasSql("No se pudo eliminar el cliente en sql");
             }
             finally
             {

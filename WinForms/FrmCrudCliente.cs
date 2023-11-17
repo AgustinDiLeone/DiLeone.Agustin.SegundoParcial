@@ -12,6 +12,8 @@ using System.Windows.Forms;
 using System.Xml.Serialization;
 using System.Xml;
 using Microsoft.VisualBasic.ApplicationServices;
+using Exceptions;
+using System.Reflection;
 
 namespace WinForms
 {
@@ -77,7 +79,14 @@ namespace WinForms
             frmAgregarCliente.ShowDialog();
             if (frmAgregarCliente.seCreoCliente)
             {
-                this.ado.AgregarCliente(frmAgregarCliente.cliente);
+                try
+                {               
+                    this.ado.AgregarCliente(frmAgregarCliente.cliente);
+                }
+                catch (ProblemasSql ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
                 this.clientes.Add(frmAgregarCliente.cliente);
                 this.ActualizarVisor();
             }
@@ -96,7 +105,15 @@ namespace WinForms
             frmEliminar.ShowDialog();
             if (frmEliminar.Respuesta)
             {
-                this.ado.EliminarCliente(this.clientes[index]);
+                try
+                {
+                    this.ado.EliminarCliente(this.clientes[index]);
+                }
+                catch (ProblemasSql ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                
                 this.clientes.RemoveAt(index);
                 this.ActualizarVisor();
             }
@@ -114,7 +131,14 @@ namespace WinForms
             frmAgregarCliente.ShowDialog();
             if (frmAgregarCliente.seCreoCliente)
             {
-                this.ado.ModificarCliente(this.clientes[index], frmAgregarCliente.cliente);
+                try
+                {
+                    this.ado.ModificarCliente(this.clientes[index], frmAgregarCliente.cliente);
+                }
+                catch (ProblemasSql ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
                 frmAgregarCliente.cliente.Dispositivos = this.clientes[index].Dispositivos;
                 this.clientes[index] = frmAgregarCliente.cliente;
                 this.ActualizarVisor();
@@ -144,6 +168,7 @@ namespace WinForms
                     this.OrdenarClienteCuit("desendiente");
                 }
             }
+
             this.ActualizarVisor();
         }
 
@@ -193,7 +218,16 @@ namespace WinForms
                 this.clientes = new List<Cliente>();
             this.usuarios.Add(base.datosUsuarioIngresado);
             this.SerializacionLog(this.datosUsuarioIngresado, @"..\..\..\..\WinForms\Usuarios.log");
-            this.clientesSql = this.ado.ObtenerListaCliente();
+            
+            try
+            {
+                this.clientesSql = this.ado.ObtenerListaCliente();
+            }
+            catch (ProblemasSql ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
             this.ActualizarVisor();
 
         }
@@ -248,9 +282,16 @@ namespace WinForms
 
         private void BtnBackUp_Click(object sender, EventArgs e)
         {
-            this.clientesSql = ado.ObtenerListaCliente();
+            try
+            {
+                this.clientesSql = ado.ObtenerListaCliente();
+            }
+            catch (ProblemasSql ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             FrmVer frmVerBackUp = new FrmVer(this.clientesSql);
             frmVerBackUp.Show();
-        }
+            }
     }
 }
