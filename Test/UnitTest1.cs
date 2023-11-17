@@ -27,5 +27,25 @@ namespace Test
             Assert.IsFalse(rta);
         
         }
+        [TestMethod]
+        public void VerificarNotebooksNulas()
+        {
+            Notebook notebookUna = null;
+            Notebook notebookDos = null;
+
+            bool rta = notebookUna == notebookDos;
+
+            Assert.IsTrue(rta);
+
+        }
+        [TestMethod]
+        public void AgregarTelevisoresFalla()
+        {
+            //Arrange
+            Cliente cliente = new Cliente(16913167521, "Agustin", ETipos.ResponsableInscripto, "Buenos Aires");
+            Televisor televisorUno = new Televisor(20, 400, 100000, "UTP350", "LG", EFactura.C, 1080, 100.5);
+            Televisor televisoDos = new Televisor(20, 400, 100000, "UTP350", "LG", EFactura.C, 1080, 100.5);
+
+        }
     }
 }
