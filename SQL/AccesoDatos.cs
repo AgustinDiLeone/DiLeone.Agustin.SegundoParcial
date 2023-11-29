@@ -104,11 +104,11 @@ namespace SQL
                 this.comando.Parameters.AddWithValue("@Nombre", cliente.Nombre);
                 this.comando.Parameters.AddWithValue("@Cuit", cliente.Cuit);
                 this.comando.Parameters.AddWithValue("@Ubicacion", cliente.Ubicacion);
-                this.comando.Parameters.AddWithValue("@Tipo", cliente.TipoCliente);
+                this.comando.Parameters.AddWithValue("@Tipo", cliente.TipoCliente.ToString());
                 this.comando.Parameters.AddWithValue("@NombreViejo", clienteViejo.Nombre);
                 this.comando.Parameters.AddWithValue("@CuitViejo", clienteViejo.Cuit);
                 this.comando.CommandType = System.Data.CommandType.Text;
-                this.comando.CommandText = $"Update ClienteSql Set Nombre = @Nombre, Cuit = @Cuit , Ubicacion = @Ubicacion where Nombre = @NombreViejo AND Cuit = @CuitViejo";
+                this.comando.CommandText = $"Update ClienteSql Set Nombre = @Nombre, Cuit = @Cuit , Ubicacion = @Ubicacion, Tipo = @Tipo where Nombre = @NombreViejo AND Cuit = @CuitViejo";
                 this.comando.Connection = this.conexion;
 
                 this.conexion.Open();
