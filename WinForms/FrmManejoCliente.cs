@@ -26,16 +26,16 @@ namespace WinForms
             this.cliente = cliente;
             TxtNombre.Text = this.cliente.Nombre;
             TxtCuit.Text = this.cliente.Cuit.ToString();
-            TxtUbicacion.Text = this.cliente.Ubicacion; 
-            CmbTipo.SelectedItem = this.cliente.TipoCliente;
-
+            TxtUbicacion.Text = this.cliente.Ubicacion;
+            var tipos = ETipos.GetNames(typeof(ETipos));
+            CmbTipo.DropDownStyle = ComboBoxStyle.DropDownList;
+            CmbTipo.DataSource = tipos;
         }
 
         private void FrmAgregarCliente_Load(object sender, EventArgs e)
         {
-            var tipos= ETipos.GetValues(typeof(ETipos));
-            CmbTipo.DropDownStyle = ComboBoxStyle.DropDownList;
-            CmbTipo.DataSource = tipos;
+
+            CmbTipo.SelectedItem = this.cliente.TipoCliente.ToString();
         }
 
         private void BtnAceptar_Click(object sender, EventArgs e)
@@ -45,11 +45,15 @@ namespace WinForms
                 MessageBox.Show("Ingrese un cuit valido", "ERROR");
                 return;
             }
+            if (!(Enum.TryParse(this.CmbTipo.SelectedItem.ToString(), out ETipos tipo)))
+            {
+                MessageBox.Show("Ingrese un tipo valido", "ERROR");
+                return;
+            }
 
             string nombre = this.TxtNombre.Text;
             string ubicacion = this.TxtUbicacion.Text;
-            ETipos tipo = (ETipos)this.CmbTipo.SelectedItem;
-
+                      
 
             if (nombre.Length == 0 || ubicacion.Length == 0 || cuit <= 0)
             {
