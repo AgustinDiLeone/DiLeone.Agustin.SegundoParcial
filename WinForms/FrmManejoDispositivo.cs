@@ -238,6 +238,7 @@ namespace WinForms
             {
                 case Celular:
                     PageCelular.Enabled = true;
+                    TabDispositivos.SelectedIndex = 0;
                     Celular celular = this.dispositivo as Celular;
                     TxtCantCamarasCelular.Text = celular.CantCamaras.ToString();
                     TxtAlmacenamientoCelular.Text = celular.Almacenamiento.ToString();
@@ -246,6 +247,7 @@ namespace WinForms
                     break;
                 case Notebook:
                     PageNotebook.Enabled = true;
+                    TabDispositivos.SelectedIndex = 1;
                     Notebook notebook = this.dispositivo as Notebook;
                     TxtPulgadasNote.Text = notebook.Pulgadas.ToString();
                     TxtResolucionNote.Text = notebook.Resolucion.ToString();
@@ -256,6 +258,7 @@ namespace WinForms
                     break;
                 case Televisor:
                     PageTelevisor.Enabled = true;
+                    TabDispositivos.SelectedIndex = 2;
                     Televisor televisor = this.dispositivo as Televisor;
                     TxtPulgadasTele.Text = televisor.Pulgadas.ToString();
                     TxtResolucionTele.Text = televisor.Resolucion.ToString();
