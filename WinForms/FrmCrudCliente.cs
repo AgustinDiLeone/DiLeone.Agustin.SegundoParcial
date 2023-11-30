@@ -42,7 +42,7 @@ namespace WinForms
                 BtnModificar.Enabled = false;
                 BtnAgregar.Enabled = false;
             }
-            IniciarHiloHora();
+            Task.Run(IniciarHiloHora);
 
         }
 
@@ -292,7 +292,7 @@ namespace WinForms
             frmVerBackUp.Show();
         }
 
-        private async void IniciarHiloHora()
+        private async Task IniciarHiloHora()
         {
             while (true)
             {

@@ -1,46 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfCliente xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Cliente>
-    <Cuit>245285214521</Cuit>
-    <Nombre>Juan Carlos</Nombre>
-    <TipoCliente>Monotributista</TipoCliente>
-    <Ubicacion>Lanus, Buenos Aires</Ubicacion>
+    <Cuit>20456799486</Cuit>
+    <Nombre>Agustin Di Leone</Nombre>
+    <TipoCliente>ResponsableInscripto</TipoCliente>
+    <Ubicacion>Lomas, Buenos Aires</Ubicacion>
     <Dispositivos>
-      <DispositivoElectronico xsi:type="Celular">
-        <Id>1</Id>
-        <Cantidad>254</Cantidad>
-        <Marca>Samsung</Marca>
-        <Modelo>A23</Modelo>
-        <PrecioUnitario>600000</PrecioUnitario>
-        <TipoFactura>A</TipoFactura>
-        <Pulgadas>16</Pulgadas>
-        <Almacenamiento>256</Almacenamiento>
-        <Ram>8</Ram>
-        <CantCamaras>3</CantCamaras>
-      </DispositivoElectronico>
       <DispositivoElectronico xsi:type="Televisor">
-        <Id>2</Id>
-        <Cantidad>452</Cantidad>
-        <Marca>Philips</Marca>
-        <Modelo>AKD265</Modelo>
-        <PrecioUnitario>800000</PrecioUnitario>
+        <Id>6</Id>
+        <Cantidad>4465</Cantidad>
+        <Marca>Samsung</Marca>
+        <Modelo>DSS58</Modelo>
+        <PrecioUnitario>25625</PrecioUnitario>
         <TipoFactura>B</TipoFactura>
-        <Pulgadas>80</Pulgadas>
-        <Resolucion>3200</Resolucion>
+        <Pulgadas>100</Pulgadas>
+        <Resolucion>4000</Resolucion>
         <SmartTv>true</SmartTv>
       </DispositivoElectronico>
       <DispositivoElectronico xsi:type="Notebook">
-        <Id>3</Id>
-        <Cantidad>45874</Cantidad>
-        <Marca>Lenovo</Marca>
-        <Modelo>ideapad3</Modelo>
+        <Id>4</Id>
+        <Cantidad>879</Cantidad>
+        <Marca>Asus</Marca>
+        <Modelo>GT695</Modelo>
         <PrecioUnitario>125000</PrecioUnitario>
-        <TipoFactura>A</TipoFactura>
+        <TipoFactura>C</TipoFactura>
         <Pulgadas>15</Pulgadas>
         <Resolucion>1080</Resolucion>
         <Almacenamiento>1000</Almacenamiento>
-        <Ram>8</Ram>
+        <Ram>16</Ram>
         <SistemaOperativo>Windows 11</SistemaOperativo>
+        <Ssd>true</Ssd>
+      </DispositivoElectronico>
+      <DispositivoElectronico xsi:type="Notebook">
+        <Id>5</Id>
+        <Cantidad>4852</Cantidad>
+        <Marca>Apple</Marca>
+        <Modelo>Macbook 5</Modelo>
+        <PrecioUnitario>600000</PrecioUnitario>
+        <TipoFactura>A</TipoFactura>
+        <Pulgadas>16</Pulgadas>
+        <Resolucion>1080</Resolucion>
+        <Almacenamiento>500</Almacenamiento>
+        <Ram>24</Ram>
+        <SistemaOperativo>ios 11</SistemaOperativo>
         <Ssd>true</Ssd>
       </DispositivoElectronico>
     </Dispositivos>
@@ -91,48 +93,46 @@
     </Dispositivos>
   </Cliente>
   <Cliente>
-    <Cuit>20456799486</Cuit>
-    <Nombre>Agustin Di Leone</Nombre>
-    <TipoCliente>ResponsableInscripto</TipoCliente>
-    <Ubicacion>Lomas, Buenos Aires</Ubicacion>
+    <Cuit>245285214521</Cuit>
+    <Nombre>Juan Carlos</Nombre>
+    <TipoCliente>Monotributista</TipoCliente>
+    <Ubicacion>Lanus, Buenos Aires</Ubicacion>
     <Dispositivos>
-      <DispositivoElectronico xsi:type="Televisor">
-        <Id>6</Id>
-        <Cantidad>4465</Cantidad>
+      <DispositivoElectronico xsi:type="Celular">
+        <Id>1</Id>
+        <Cantidad>254</Cantidad>
         <Marca>Samsung</Marca>
-        <Modelo>DSS58</Modelo>
-        <PrecioUnitario>25625</PrecioUnitario>
-        <TipoFactura>B</TipoFactura>
-        <Pulgadas>100</Pulgadas>
-        <Resolucion>4000</Resolucion>
-        <SmartTv>true</SmartTv>
-      </DispositivoElectronico>
-      <DispositivoElectronico xsi:type="Notebook">
-        <Id>4</Id>
-        <Cantidad>879</Cantidad>
-        <Marca>Asus</Marca>
-        <Modelo>GT695</Modelo>
-        <PrecioUnitario>125000</PrecioUnitario>
-        <TipoFactura>C</TipoFactura>
-        <Pulgadas>15</Pulgadas>
-        <Resolucion>1080</Resolucion>
-        <Almacenamiento>1000</Almacenamiento>
-        <Ram>16</Ram>
-        <SistemaOperativo>Windows 11</SistemaOperativo>
-        <Ssd>true</Ssd>
-      </DispositivoElectronico>
-      <DispositivoElectronico xsi:type="Notebook">
-        <Id>5</Id>
-        <Cantidad>4852</Cantidad>
-        <Marca>Apple</Marca>
-        <Modelo>Macbook 5</Modelo>
+        <Modelo>A23</Modelo>
         <PrecioUnitario>600000</PrecioUnitario>
         <TipoFactura>A</TipoFactura>
         <Pulgadas>16</Pulgadas>
+        <Almacenamiento>256</Almacenamiento>
+        <Ram>8</Ram>
+        <CantCamaras>3</CantCamaras>
+      </DispositivoElectronico>
+      <DispositivoElectronico xsi:type="Televisor">
+        <Id>2</Id>
+        <Cantidad>452</Cantidad>
+        <Marca>Philips</Marca>
+        <Modelo>AKD265</Modelo>
+        <PrecioUnitario>800000</PrecioUnitario>
+        <TipoFactura>B</TipoFactura>
+        <Pulgadas>80</Pulgadas>
+        <Resolucion>3200</Resolucion>
+        <SmartTv>true</SmartTv>
+      </DispositivoElectronico>
+      <DispositivoElectronico xsi:type="Notebook">
+        <Id>3</Id>
+        <Cantidad>45874</Cantidad>
+        <Marca>Lenovo</Marca>
+        <Modelo>ideapad3</Modelo>
+        <PrecioUnitario>125000</PrecioUnitario>
+        <TipoFactura>A</TipoFactura>
+        <Pulgadas>15</Pulgadas>
         <Resolucion>1080</Resolucion>
-        <Almacenamiento>500</Almacenamiento>
-        <Ram>24</Ram>
-        <SistemaOperativo>ios 11</SistemaOperativo>
+        <Almacenamiento>1000</Almacenamiento>
+        <Ram>8</Ram>
+        <SistemaOperativo>Windows 11</SistemaOperativo>
         <Ssd>true</Ssd>
       </DispositivoElectronico>
     </Dispositivos>
