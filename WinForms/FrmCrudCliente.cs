@@ -248,8 +248,6 @@ namespace WinForms
             this.SerializaciónXml(this.clientes, path);
         }
 
-
-
         public void OrdenarClienteNombre(string orden)
         {
             if (orden == "ascendente")
@@ -279,7 +277,6 @@ namespace WinForms
             }
 
         }
-
         private void BtnBackUp_Click(object sender, EventArgs e)
         {
             try

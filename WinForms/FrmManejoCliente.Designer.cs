@@ -102,7 +102,6 @@
             TxtNombre.Name = "TxtNombre";
             TxtNombre.Size = new Size(254, 23);
             TxtNombre.TabIndex = 6;
-            TxtNombre.TextChanged += TxtNombre_TextChanged;
             // 
             // TxtCuit
             // 
@@ -125,7 +124,6 @@
             CmbTipo.Name = "CmbTipo";
             CmbTipo.Size = new Size(254, 23);
             CmbTipo.TabIndex = 9;
-            CmbTipo.SelectedIndexChanged += CmbTipo_SelectedIndexChanged;
             // 
             // FrmAgregarCliente
             // 

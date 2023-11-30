@@ -30,12 +30,12 @@ namespace WinForms
             var tipos = ETipos.GetNames(typeof(ETipos));
             CmbTipo.DropDownStyle = ComboBoxStyle.DropDownList;
             CmbTipo.DataSource = tipos;
+            CmbTipo.SelectedItem = this.cliente.TipoCliente.ToString();
         }
 
         private void FrmAgregarCliente_Load(object sender, EventArgs e)
         {
 
-            CmbTipo.SelectedItem = this.cliente.TipoCliente.ToString();
         }
 
         private void BtnAceptar_Click(object sender, EventArgs e)
@@ -74,17 +74,5 @@ namespace WinForms
             this.DialogResult = DialogResult.Cancel;
         }
 
-
-
-
-        private void TxtNombre_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void CmbTipo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

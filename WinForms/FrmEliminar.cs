@@ -70,9 +70,5 @@ namespace WinForms
             }
         }
 
-        private void lstClientes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

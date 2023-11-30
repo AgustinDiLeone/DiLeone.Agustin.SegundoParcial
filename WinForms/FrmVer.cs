@@ -71,14 +71,5 @@ namespace WinForms
             }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TxtDispositivos_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

@@ -55,7 +55,6 @@
             lstBox.ScrollAlwaysVisible = true;
             lstBox.Size = new Size(395, 379);
             lstBox.TabIndex = 0;
-            lstBox.SelectedIndexChanged += lstBox_SelectedIndexChanged;
             // 
             // grpOrdenCarac
             // 
@@ -90,7 +89,6 @@
             BtnCaracteristicaUno.TabStop = true;
             BtnCaracteristicaUno.Text = "Ascendente";
             BtnCaracteristicaUno.UseVisualStyleBackColor = true;
-            BtnCaracteristicaUno.CheckedChanged += BtnCaracteristicaUno_CheckedChanged;
             // 
             // grpOrden
             // 
@@ -183,7 +181,6 @@
             LblUsuarioConectado.Size = new Size(105, 15);
             LblUsuarioConectado.TabIndex = 9;
             LblUsuarioConectado.Text = "UsuarioConectado";
-            LblUsuarioConectado.Click += LblUsuarioConectado_Click;
             // 
             // BtnUsuarios
             // 

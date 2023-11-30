@@ -49,7 +49,6 @@
             TxtDispositivos.Size = new Size(396, 347);
             TxtDispositivos.TabIndex = 2;
             TxtDispositivos.Text = "";
-            TxtDispositivos.TextChanged += TxtDispositivos_TextChanged;
             // 
             // FrmVer
             // 

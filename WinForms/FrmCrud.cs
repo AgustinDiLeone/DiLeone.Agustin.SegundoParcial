@@ -36,27 +36,12 @@ namespace WinForms
 
         public virtual void BtnEliminar_Click(object sender, EventArgs e) { }
 
-        private void lstBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         public virtual void BtnOrdenar_Click(object sender, EventArgs e) { }
-
-        public virtual void LblUsuarioConectado_Click(object sender, EventArgs e)
-        {
-
-        }
 
         public virtual void FrmCrud_Load(object sender, EventArgs e)
         {
             LblUsuarioConectado.Text = this.datosUsuarioIngresado;
             this.usuarios = this.DeserializacionLog(@"..\..\..\..\WinForms\Usuarios.log");
-
-        }
-
-        private void BtnCaracteristicaUno_CheckedChanged(object sender, EventArgs e)
-        {
 
         }
 
