@@ -15,7 +15,13 @@ namespace WinForms
     public partial class FrmCrudDispositivos : FrmCrud
     {
         protected Cliente cliente;
-        public FrmCrudDispositivos(Usuario usuario,Cliente cliente):base(usuario)
+
+        // Delegado para el evento personalizado
+        public delegate void EscKeyPressedEventHandler(object sender, EventArgs e);
+
+        // Evento personalizado que se dispara cuando se presiona la tecla "Esc"
+        public event EscKeyPressedEventHandler EscKeyPressed;
+        public FrmCrudDispositivos(Usuario usuario, Cliente cliente) : base(usuario)
         {
             InitializeComponent();
             this.CenterToScreen();
@@ -32,6 +38,7 @@ namespace WinForms
                 BtnModificar.Enabled = false;
                 BtnAgregar.Enabled = false;
             }
+            KeyPreview = true; // Habilita la recepción de eventos de teclado en el formulario
         }
 
         private void ActualizarVisor()
@@ -119,7 +126,7 @@ namespace WinForms
         {
             if (BtnCaracteristicaUno.Checked)
             {
-                if(BtnAscendente.Checked)
+                if (BtnAscendente.Checked)
                 {
                     this.cliente.OrdenarDispositivosId("ascendente");
                 }
@@ -144,5 +151,23 @@ namespace WinForms
             this.ActualizarVisor();
         }
 
+        protected virtual void OnEscKeyPressed()
+        {
+            EscKeyPressed?.Invoke(this, EventArgs.Empty);
+        }
+        protected override void OnKeyDown(KeyEventArgs e)
+        {
+            base.OnKeyDown(e);
+
+            // Verifica si se presionó la tecla "Esc"
+            if (e.KeyCode == Keys.Escape)
+            {
+                // Dispara el evento personalizado
+                this.OnEscKeyPressed();
+
+                // Cierra el formulario actual
+                this.Close();
+            }
+        }
     }
 }

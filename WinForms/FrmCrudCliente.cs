@@ -24,6 +24,11 @@ namespace WinForms
         private AccesoDatos ado;
         private Usuario usuario;
 
+        // Delegado para el evento personalizado
+        public delegate void EscKeyPressedEventHandler(object sender, EventArgs e);
+
+        // Evento personalizado que se dispara cuando se presiona la tecla "Esc"
+        public event EscKeyPressedEventHandler EscKeyPressed;
 
         public FrmCrudCliente(Usuario usuario) : base(usuario)
         {
@@ -43,7 +48,7 @@ namespace WinForms
                 BtnAgregar.Enabled = false;
             }
             Task.Run(IniciarHiloHora);
-
+            KeyPreview = true;
         }
 
         public void ActualizarVisor()
@@ -312,5 +317,24 @@ namespace WinForms
             lblHora.Text = DateTime.Now.ToString("HH:mm:ss dd/MM/yyyy");
         }
 
+
+        protected virtual void OnEscKeyPressed()
+        {
+            EscKeyPressed?.Invoke(this, EventArgs.Empty);
+        }
+        protected override void OnKeyDown(KeyEventArgs e)
+        {
+            base.OnKeyDown(e);
+
+            // Verifica si se presionó la tecla "Esc"
+            if (e.KeyCode == Keys.Escape)
+            {
+                // Dispara el evento personalizado
+                this.OnEscKeyPressed();
+
+                // Cierra el formulario actual
+                this.Close();
+            }
+        }
     }
 }
