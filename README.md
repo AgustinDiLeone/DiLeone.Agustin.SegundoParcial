@@ -25,5 +25,7 @@ La lista de clientes, los cuales incluyen sos dispositivos adqueridos, estan alm
 Se agrega la funcion de back up de la lista de los clientes. Con todas las funcionalidades del CRUD, permite resguardar los datos en una base de dato SQL. Ademas se agrego un boton "BackUp SQL" el cual permite visualizar los datos guardados en la base de datos. 
 ### Test Unitarios
 Contiene un proyecto de tipo Test donde se diseñaron algunos metodos para probar el correcto funcionamiento de la aplicacion.
+### Task
+Esta aplicacion tiene una programacion multihilo, mostrandote la fecha y hora actual en la parte inferior izquierda, en un hilo secundario, para que no afecte la agilidad de la aplicacion.
 ## Diagrama de clase
 ![ClassDiagram](https://github.com/AgustinDiLeone/DiLeone.Agustin.PrimerParcial/assets/123491937/94f88e1c-271f-4e7c-aded-86a648c4cddf)
