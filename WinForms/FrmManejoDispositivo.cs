@@ -21,6 +21,13 @@ namespace WinForms
         public string marca;
         public string modelo;
         private EFactura tipo;
+
+        // Delegados y eventos de FrmManejadorClientes
+        public delegate void DispositivoAgregadoEventHandler(DispositivoElectronico dispositivo);
+        public delegate void DispositivoActualizadoEventHandler(DispositivoElectronico dispositivo);
+
+        public event DispositivoAgregadoEventHandler DispositivoAgregado;
+        public event DispositivoActualizadoEventHandler DispositivoActualizado;
         public FrmManejoDispositivo()
         {
             InitializeComponent();
@@ -267,6 +274,17 @@ namespace WinForms
 
             }
         }
+        public virtual void OnDispositivoActualizado(DispositivoElectronico dispositivo)
+        {
+            // Verificar si hay suscriptores al evento antes de invocarlo
+            DispositivoActualizado?.Invoke(dispositivo);
+        }
+        public virtual void OnDispositivoAgregado(DispositivoElectronico dispositivo)
+        {
+            // Verificar si hay suscriptores al evento antes de invocarlo
+            DispositivoAgregado?.Invoke(dispositivo);
+        }
+    
     }
 
 }

@@ -106,5 +106,15 @@ namespace WinForms
                 throw new TipoNoValido();
             }
         }
+        public virtual void OnClienteActualizado(Cliente cliente)
+        {
+            // Verificar si hay suscriptores al evento antes de invocarlo
+            ClienteActualizado?.Invoke(cliente);
+        }
+        public virtual void OnClienteAgregado(Cliente cliente)
+        {
+            // Verificar si hay suscriptores al evento antes de invocarlo
+            ClienteAgregado?.Invoke(cliente);
+        }
     }
 }

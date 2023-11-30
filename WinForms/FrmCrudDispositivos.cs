@@ -69,12 +69,14 @@ namespace WinForms
         public override void BtnAgregar_Click(object sender, EventArgs e)
         {
             FrmManejoDispositivo frmAgregarDispositivo = new FrmManejoDispositivo();
+            frmAgregarDispositivo.DispositivoAgregado += Agregado;
             frmAgregarDispositivo.ShowDialog();
             if (frmAgregarDispositivo.seCreo)
             {
                 this.cliente.Dispositivos.Add(frmAgregarDispositivo.dispositivo);
                 this.ActualizarVisor();
             }
+            frmAgregarDispositivo.OnDispositivoAgregado(frmAgregarDispositivo.dispositivo);
 
         }
         public override void BtnEliminar_Click(object sender, EventArgs e)
@@ -87,7 +89,9 @@ namespace WinForms
             }
             DispositivoElectronico dispo = this.cliente.Dispositivos[index];
             FrmEliminar frmEliminar = new FrmEliminar("dispositivo", dispo);
+            frmEliminar.DispositivoEliminado += Eliminado;
             frmEliminar.ShowDialog();
+            frmEliminar.OnDispositivoEliminado(dispo);
             if (frmEliminar.Respuesta)
             {
                 this.cliente.Dispositivos.Remove(dispo);//  RemoveAt(index);
@@ -102,13 +106,16 @@ namespace WinForms
                 MessageBox.Show("Selecciona el elemento que deseas modificar", "ERROR");
                 return;
             }
-            FrmManejoDispositivo frmAgregarDispositivo = new FrmManejoDispositivo(this.cliente.Dispositivos[index]);
-            frmAgregarDispositivo.ShowDialog();
-            if (frmAgregarDispositivo.seCreo)
+            FrmManejoDispositivo frmModificarDispositivo = new FrmManejoDispositivo(this.cliente.Dispositivos[index]);
+            frmModificarDispositivo.DispositivoActualizado += Actualizado; 
+            frmModificarDispositivo.ShowDialog();
+            if (frmModificarDispositivo.seCreo)
             {
-                this.cliente.Dispositivos[index] = frmAgregarDispositivo.dispositivo;
+                this.cliente.Dispositivos[index] = frmModificarDispositivo.dispositivo;
                 this.ActualizarVisor();
             }
+            frmModificarDispositivo.OnDispositivoActualizado(frmModificarDispositivo.dispositivo);
+
         }
 
         public override void BtnVer_Click(object sender, EventArgs e)
@@ -168,6 +175,23 @@ namespace WinForms
                 // Cierra el formulario actual
                 this.Close();
             }
+        }
+        private void Agregado(DispositivoElectronico dispositivo )
+        {
+            // Lógica para manejar la adición de clientes desde FrmManejadorClientes
+            MessageBox.Show($"Producto agregado: {dispositivo.Marca}, {dispositivo.Modelo}");
+        }
+
+        private void Actualizado(DispositivoElectronico dispositivo)
+        {
+            // Lógica para manejar la actualización de clientes desde FrmManejadorClientes
+            MessageBox.Show($"Producto actualizado: {dispositivo.Marca}, {dispositivo.Modelo}");
+        }
+
+        private void Eliminado(DispositivoElectronico dispositivo)
+        {
+            // Lógica para manejar la eliminación de clientes desde FrmEliminar
+            MessageBox.Show($"Producto eliminado: {dispositivo.Marca}, {dispositivo.Modelo}");
         }
     }
 }

@@ -22,7 +22,8 @@ namespace WinForms
         // Delegado y evento de FrmEliminar
         public delegate void ClienteEliminadoEventHandler(Cliente cliente);
         public event ClienteEliminadoEventHandler ClienteEliminado;
-
+        public delegate void DispositivoEliminadoEventHandler(DispositivoElectronico dispositivo);
+        public event DispositivoEliminadoEventHandler DispositivoEliminado;
         public bool Respuesta
         {
             get { return this.respuesta; }
@@ -78,6 +79,11 @@ namespace WinForms
         {
             // Verificar si hay suscriptores al evento antes de invocarlo
             ClienteEliminado?.Invoke(cliente);
+        }
+        public virtual void OnDispositivoEliminado(DispositivoElectronico dispo)
+        {
+            // Verificar si hay suscriptores al evento antes de invocarlo
+            DispositivoEliminado?.Invoke(dispo);
         }
 
     }

@@ -58,34 +58,9 @@ namespace WinForms
 
             ////
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="cliente"></param>
-        private void FrmManejadorClientes_ClienteAgregado(Cliente cliente)
-        {
-            // Lógica para manejar la adición de clientes desde FrmManejadorClientes
-            Console.WriteLine($"Cliente agregado desde FrmManejadorClientes: {cliente.Nombre}");
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="cliente"></param>
-        private void FrmManejadorClientes_ClienteActualizado(Cliente cliente)
-        {
-            // Lógica para manejar la actualización de clientes desde FrmManejadorClientes
-            Console.WriteLine($"Cliente actualizado desde FrmManejadorClientes: {cliente.Nombre}");
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="cliente"></param>
-        private void FrmEliminar_ClienteEliminado(Cliente cliente)
-        {
-            // Lógica para manejar la eliminación de clientes desde FrmEliminar
-            MessageBox.Show($"Cliente eliminado desde FrmEliminar: {cliente.Nombre}");
-        }
-    
+
+
+
 
         public void ActualizarVisor()
         {
@@ -118,7 +93,9 @@ namespace WinForms
         public override void BtnAgregar_Click(object sender, EventArgs e)
         {
             FrmManejoCliente frmAgregarCliente = new FrmManejoCliente();
+            frmAgregarCliente.ClienteAgregado += Agregado;
             frmAgregarCliente.ShowDialog();
+
             if (frmAgregarCliente.seCreoCliente)
             {
                 try
@@ -132,7 +109,7 @@ namespace WinForms
                 this.clientes.Add(frmAgregarCliente.cliente);
                 this.ActualizarVisor();
             }
-
+            frmAgregarCliente.OnClienteAgregado(frmAgregarCliente.cliente);
         }
         public override void BtnEliminar_Click(object sender, EventArgs e)
         {
@@ -144,7 +121,7 @@ namespace WinForms
             }
             Cliente cliente = this.clientes[index];
             FrmEliminar frmEliminar = new FrmEliminar("cliente", cliente);
-            frmEliminar.ClienteEliminado += FrmEliminar_ClienteEliminado;
+            frmEliminar.ClienteEliminado += Eliminado;
             frmEliminar.ShowDialog();
             frmEliminar.OnClienteEliminado(this.clientes[index]);
             if (frmEliminar.Respuesta)
@@ -159,7 +136,7 @@ namespace WinForms
                 }
 
                 this.clientes.RemoveAt(index);
-                
+
                 this.ActualizarVisor();
             }
 
@@ -172,22 +149,24 @@ namespace WinForms
                 MessageBox.Show("Selecciona el elemento que deseas modificar", "ERROR");
                 return;
             }
-            FrmManejoCliente frmAgregarCliente = new FrmManejoCliente(this.clientes[index]);
-            frmAgregarCliente.ShowDialog();
-            if (frmAgregarCliente.seCreoCliente)
+            FrmManejoCliente frmModificarCliente = new FrmManejoCliente(this.clientes[index]);
+            frmModificarCliente.ClienteActualizado += Actualizado;
+            frmModificarCliente.ShowDialog();
+            if (frmModificarCliente.seCreoCliente)
             {
                 try
                 {
-                    this.ado.ModificarCliente(this.clientes[index], frmAgregarCliente.cliente);
+                    this.ado.ModificarCliente(this.clientes[index], frmModificarCliente.cliente);
                 }
                 catch (ProblemasSql ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
-                frmAgregarCliente.cliente.Dispositivos = this.clientes[index].Dispositivos;
-                this.clientes[index] = frmAgregarCliente.cliente;
+                frmModificarCliente.cliente.Dispositivos = this.clientes[index].Dispositivos;
+                this.clientes[index] = frmModificarCliente.cliente;
                 this.ActualizarVisor();
             }
+            frmModificarCliente.OnClienteActualizado(frmModificarCliente.cliente);
         }
         public override void BtnOrdenar_Click(object sender, EventArgs e)
         {
@@ -373,6 +352,23 @@ namespace WinForms
                 // Cierra el formulario actual
                 this.Close();
             }
+        }
+        private void Agregado(Cliente cliente)
+        {
+            // Lógica para manejar la adición de clientes desde FrmManejadorClientes
+            MessageBox.Show($"Cliente agregado: {cliente.Nombre}");
+        }
+
+        private void Actualizado(Cliente cliente)
+        {
+            // Lógica para manejar la actualización de clientes desde FrmManejadorClientes
+            MessageBox.Show($"Cliente actualizado: {cliente.Nombre}");
+        }
+
+        private void Eliminado(Cliente cliente)
+        {
+            // Lógica para manejar la eliminación de clientes desde FrmEliminar
+            MessageBox.Show($"Cliente eliminado: {cliente.Nombre}");
         }
     }
 }
