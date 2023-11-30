@@ -29,9 +29,14 @@
         private void InitializeComponent()
         {
             BtnBackUp = new Button();
+            lblHora = new Label();
             grpOrdenCarac.SuspendLayout();
             grpOrden.SuspendLayout();
             SuspendLayout();
+            // 
+            // lstBox
+            // 
+            lstBox.Size = new Size(395, 334);
             // 
             // BtnVer
             // 
@@ -52,11 +57,21 @@
             BtnBackUp.UseVisualStyleBackColor = true;
             BtnBackUp.Click += BtnBackUp_Click;
             // 
+            // lblHora
+            // 
+            lblHora.AutoSize = true;
+            lblHora.Location = new Point(29, 388);
+            lblHora.Name = "lblHora";
+            lblHora.Size = new Size(70, 15);
+            lblHora.TabIndex = 12;
+            lblHora.Text = "Hora Actual";
+            // 
             // FrmCrudCliente
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(800, 429);
+            Controls.Add(lblHora);
             Controls.Add(BtnBackUp);
             Name = "FrmCrudCliente";
             Text = "FrmCrudCliente";
@@ -73,6 +88,7 @@
             Controls.SetChildIndex(BtnAgregar, 0);
             Controls.SetChildIndex(LblUsuarioConectado, 0);
             Controls.SetChildIndex(BtnBackUp, 0);
+            Controls.SetChildIndex(lblHora, 0);
             grpOrdenCarac.ResumeLayout(false);
             grpOrdenCarac.PerformLayout();
             grpOrden.ResumeLayout(false);
@@ -84,5 +100,6 @@
         #endregion
 
         private Button BtnBackUp;
+        private Label lblHora;
     }
 }

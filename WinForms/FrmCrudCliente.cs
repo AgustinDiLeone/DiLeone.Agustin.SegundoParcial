@@ -42,10 +42,11 @@ namespace WinForms
                 BtnModificar.Enabled = false;
                 BtnAgregar.Enabled = false;
             }
+            IniciarHiloHora();
 
         }
 
-        private void ActualizarVisor()
+        public void ActualizarVisor()
         {
             lstBox.Items.Clear();
             if (this.clientes != null)
@@ -80,7 +81,7 @@ namespace WinForms
             if (frmAgregarCliente.seCreoCliente)
             {
                 try
-                {               
+                {
                     this.ado.AgregarCliente(frmAgregarCliente.cliente);
                 }
                 catch (ProblemasSql ex)
@@ -113,7 +114,7 @@ namespace WinForms
                 {
                     MessageBox.Show(ex.Message);
                 }
-                
+
                 this.clientes.RemoveAt(index);
                 this.ActualizarVisor();
             }
@@ -218,7 +219,7 @@ namespace WinForms
                 this.clientes = new List<Cliente>();
             this.usuarios.Add(base.datosUsuarioIngresado);
             this.SerializacionLog(this.datosUsuarioIngresado, @"..\..\..\..\WinForms\Usuarios.log");
-            
+
             try
             {
                 this.clientesSql = this.ado.ObtenerListaCliente();
@@ -289,6 +290,24 @@ namespace WinForms
             }
             FrmVer frmVerBackUp = new FrmVer(this.clientesSql);
             frmVerBackUp.Show();
+        }
+
+        private async void IniciarHiloHora()
+        {
+            while (true)
+            {
+                // Espera 1 segundo antes de actualizar la hora
+                await Task.Delay(1000);
+
+                // Actualiza la hora en el hilo principal
+                BeginInvoke(new Action(() => AsignarHora()));
             }
+        }
+        private void AsignarHora()
+        {
+            // Muestra la fecha y hora actual en el formato deseado
+            lblHora.Text = DateTime.Now.ToString("HH:mm:ss dd/MM/yyyy");
+        }
+
     }
 }
