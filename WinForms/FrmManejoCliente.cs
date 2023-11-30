@@ -16,12 +16,17 @@ namespace WinForms
     {
         public Entidades.Cliente cliente;
         public bool seCreoCliente;
+        public string nombre;
+        public long cuit;
+        public string ubicacion;
+        public ETipos tipo;
+
         public FrmManejoCliente()
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
         }
-        public FrmManejoCliente( Cliente cliente):this() 
+        public FrmManejoCliente(Cliente cliente) : this()
         {
             this.cliente = cliente;
             TxtNombre.Text = this.cliente.Nombre;
@@ -40,33 +45,17 @@ namespace WinForms
 
         private void BtnAceptar_Click(object sender, EventArgs e)
         {
-            if (!(long.TryParse(this.TxtCuit.Text, out long cuit)))
+            bool verificacion = VerificarDatosGenerales();
+            if (verificacion)
             {
-                MessageBox.Show("Ingrese un cuit valido", "ERROR");
-                return;
-            }
-            if (!(Enum.TryParse(this.CmbTipo.SelectedItem.ToString(), out ETipos tipo)))
-            {
-                MessageBox.Show("Ingrese un tipo valido", "ERROR");
-                return;
-            }
-
-            string nombre = this.TxtNombre.Text;
-            string ubicacion = this.TxtUbicacion.Text;
-                      
-
-            if (nombre.Length == 0 || ubicacion.Length == 0 || cuit <= 0)
-            {
-                MessageBox.Show("Ingrese datos validos", "ERROR");
-                return;
+                this.seCreoCliente = true;
+                this.cliente = new Cliente(this.cuit, this.nombre, this.tipo, this.ubicacion);
+                this.DialogResult = DialogResult.OK;
             }
             else
             {
-                this.seCreoCliente = true;
-                this.cliente = new Cliente(cuit, nombre, tipo, ubicacion);
-                this.DialogResult = DialogResult.OK;
+                return;
             }
-            
         }
 
         private void BtnCancelar_Click(object sender, EventArgs e)
@@ -74,5 +63,32 @@ namespace WinForms
             this.DialogResult = DialogResult.Cancel;
         }
 
+        private bool VerificarDatosGenerales()
+        {
+            if (!(long.TryParse(this.TxtCuit.Text, out this.cuit)))
+            {
+                MessageBox.Show("Ingrese un cuit valido", "ERROR");
+                return false;
+            }
+            if (!(Enum.TryParse(this.CmbTipo.SelectedItem.ToString(), out this.tipo)))
+            {
+                MessageBox.Show("Ingrese un tipo valido", "ERROR");
+                return false;
+            }
+
+            this.nombre = this.TxtNombre.Text;
+            this.ubicacion = this.TxtUbicacion.Text;
+
+
+            if (this.nombre.Length == 0 || this.ubicacion.Length == 0 || this.cuit <= 0)
+            {
+                MessageBox.Show("Ingrese datos validos", "ERROR");
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
     }
 }
