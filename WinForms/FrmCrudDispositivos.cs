@@ -34,7 +34,7 @@ namespace WinForms
             }
         }
 
-        private void ActualizarForm()
+        private void ActualizarVisor()
         {
             lstBox.Items.Clear();
             foreach (DispositivoElectronico dispo in this.cliente.Dispositivos)
@@ -51,7 +51,7 @@ namespace WinForms
         private void FrmVer_Load(object sender, EventArgs e)
         {
             lblCliente.Text = this.cliente.ToString();
-            this.ActualizarForm();
+            this.ActualizarVisor();
         }
 
         public Cliente ClienteModificado()
@@ -66,7 +66,7 @@ namespace WinForms
             if (frmAgregarDispositivo.seCreo)
             {
                 this.cliente.Dispositivos.Add(frmAgregarDispositivo.dispositivo);
-                this.ActualizarForm();
+                this.ActualizarVisor();
             }
 
         }
@@ -84,7 +84,7 @@ namespace WinForms
             if (frmEliminar.Respuesta)
             {
                 this.cliente.Dispositivos.Remove(dispo);//  RemoveAt(index);
-                this.ActualizarForm();
+                this.ActualizarVisor();
             }
         }
         public override void BtnModificar_Click(object sender, EventArgs e)
@@ -100,7 +100,7 @@ namespace WinForms
             if (frmAgregarDispositivo.seCreo)
             {
                 this.cliente.Dispositivos[index] = frmAgregarDispositivo.dispositivo;
-                this.ActualizarForm();
+                this.ActualizarVisor();
             }
         }
 
@@ -141,7 +141,7 @@ namespace WinForms
             }
 
 
-            this.ActualizarForm();
+            this.ActualizarVisor();
         }
 
     }
