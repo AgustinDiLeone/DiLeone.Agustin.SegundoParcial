@@ -2,6 +2,9 @@
 {
     public class ProblemasSql : Exception
     {
+        public ProblemasSql() : base("Hubo un problema con la base de datos SQL")
+        {
+        }
         public ProblemasSql(string mensaje) : base(mensaje)
         {
         }

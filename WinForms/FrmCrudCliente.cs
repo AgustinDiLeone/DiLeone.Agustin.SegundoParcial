@@ -213,10 +213,13 @@ namespace WinForms
         {
             //string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             //path += @"\ListaDeClientes.xml";
+
             string path = @"..\..\..\..\WinForms\ListaDeClientes.xml";
             this.clientes = this.DeserializacionXml(path);
+
             if (this.clientes == null)
                 this.clientes = new List<Cliente>();
+
             this.usuarios.Add(base.datosUsuarioIngresado);
             this.SerializacionLog(this.datosUsuarioIngresado, @"..\..\..\..\WinForms\Usuarios.log");
 
