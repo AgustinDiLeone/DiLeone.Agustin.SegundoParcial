@@ -1,4 +1,5 @@
 ﻿using Entidades;
+using Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,7 +13,7 @@ using System.Windows.Forms;
 
 namespace WinForms
 {
-    public partial class FrmCrudDispositivos : FrmCrud
+    public partial class FrmCrudDispositivos : FrmCrud, IEventosConfirmandoCUD<DispositivoElectronico>
     {
         protected Cliente cliente;
 
@@ -176,19 +177,19 @@ namespace WinForms
                 this.Close();
             }
         }
-        private void Agregado(DispositivoElectronico dispositivo )
+        public void Agregado(DispositivoElectronico dispositivo )
         {
             // Lógica para manejar la adición de clientes desde FrmManejadorClientes
             MessageBox.Show($"Producto agregado: {dispositivo.Marca}, {dispositivo.Modelo}");
         }
 
-        private void Actualizado(DispositivoElectronico dispositivo)
+        public void Actualizado(DispositivoElectronico dispositivo)
         {
             // Lógica para manejar la actualización de clientes desde FrmManejadorClientes
             MessageBox.Show($"Producto actualizado: {dispositivo.Marca}, {dispositivo.Modelo}");
         }
 
-        private void Eliminado(DispositivoElectronico dispositivo)
+        public void Eliminado(DispositivoElectronico dispositivo)
         {
             // Lógica para manejar la eliminación de clientes desde FrmEliminar
             MessageBox.Show($"Producto eliminado: {dispositivo.Marca}, {dispositivo.Modelo}");

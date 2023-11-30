@@ -1,4 +1,5 @@
 ﻿using Entidades;
+using Interfaces;
 using SQL;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ using System.Reflection;
 
 namespace WinForms
 {
-    public partial class FrmCrudCliente : FrmCrud
+    public partial class FrmCrudCliente : FrmCrud, IEventosConfirmandoCUD<Cliente>
     {
         private List<Cliente> clientes;
         private List<ClienteSql> clientesSql;
@@ -51,13 +52,7 @@ namespace WinForms
             }
             Task.Run(IniciarHiloHora);
             KeyPreview = true;
-            ////
-            //manejadorClientes.ClienteAgregado += FrmManejadorClientes_ClienteAgregado;
-            //manejadorClientes.ClienteActualizado += FrmManejadorClientes_ClienteActualizado;
-
-
-            ////
-        }
+         }
 
 
 
@@ -353,19 +348,19 @@ namespace WinForms
                 this.Close();
             }
         }
-        private void Agregado(Cliente cliente)
+        public void Agregado(Cliente cliente)
         {
             // Lógica para manejar la adición de clientes desde FrmManejadorClientes
             MessageBox.Show($"Cliente agregado: {cliente.Nombre}");
         }
 
-        private void Actualizado(Cliente cliente)
+        public void Actualizado(Cliente cliente)
         {
             // Lógica para manejar la actualización de clientes desde FrmManejadorClientes
             MessageBox.Show($"Cliente actualizado: {cliente.Nombre}");
         }
 
-        private void Eliminado(Cliente cliente)
+        public void Eliminado(Cliente cliente)
         {
             // Lógica para manejar la eliminación de clientes desde FrmEliminar
             MessageBox.Show($"Cliente eliminado: {cliente.Nombre}");
