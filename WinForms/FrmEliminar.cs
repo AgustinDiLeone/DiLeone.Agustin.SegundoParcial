@@ -16,8 +16,12 @@ namespace WinForms
     {
         protected string tipo;
         protected bool respuesta;
-        protected Cliente ?cliente;
-        protected DispositivoElectronico ?dispositivo;
+        protected Cliente? cliente;
+        protected DispositivoElectronico? dispositivo;
+
+        // Delegado y evento de FrmEliminar
+        public delegate void ClienteEliminadoEventHandler(Cliente cliente);
+        public event ClienteEliminadoEventHandler ClienteEliminado;
 
         public bool Respuesta
         {
@@ -27,13 +31,14 @@ namespace WinForms
         public FrmEliminar(string tipo)
         {
             InitializeComponent();
-            this.CenterToScreen();       
+            this.CenterToScreen();
             this.tipo = tipo;
         }
         public FrmEliminar(string tipo, Cliente cliente) : this(tipo)
-        { 
+        {
             this.cliente = cliente;
             this.dispositivo = null;
+
         }
         public FrmEliminar(string tipo, DispositivoElectronico dispositivo) : this(tipo)
         {
@@ -64,10 +69,15 @@ namespace WinForms
             {
                 txtClientes.Text = this.cliente.ToString(true);
             }
-            else if(this.tipo == "dispositivo")// && (this.dispositivo.ToString() != null))
+            else if (this.tipo == "dispositivo")// && (this.dispositivo.ToString() != null))
             {
                 txtClientes.Text = this.dispositivo.ToString();
             }
+        }
+        public virtual void OnClienteEliminado(Cliente cliente)
+        {
+            // Verificar si hay suscriptores al evento antes de invocarlo
+            ClienteEliminado?.Invoke(cliente);
         }
 
     }

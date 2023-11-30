@@ -24,6 +24,13 @@ namespace WinForms
         public string ubicacion;
         public ETipos tipo;
 
+        // Delegados y eventos de FrmManejadorClientes
+        public delegate void ClienteAgregadoEventHandler(Cliente cliente);
+        public delegate void ClienteActualizadoEventHandler(Cliente cliente);
+
+        public event ClienteAgregadoEventHandler ClienteAgregado;
+        public event ClienteActualizadoEventHandler ClienteActualizado;
+
         public FrmManejoCliente()
         {
             InitializeComponent();
@@ -36,7 +43,9 @@ namespace WinForms
             TxtCuit.Text = this.cliente.Cuit.ToString();
             TxtUbicacion.Text = this.cliente.Ubicacion;
             this.modificarCliente = true;
-        }
+
+
+        } 
 
         private void FrmAgregarCliente_Load(object sender, EventArgs e)
         {

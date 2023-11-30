@@ -30,6 +30,8 @@ namespace WinForms
         // Evento personalizado que se dispara cuando se presiona la tecla "Esc"
         public event EscKeyPressedEventHandler EscKeyPressed;
 
+
+
         public FrmCrudCliente(Usuario usuario) : base(usuario)
         {
             InitializeComponent();
@@ -49,7 +51,41 @@ namespace WinForms
             }
             Task.Run(IniciarHiloHora);
             KeyPreview = true;
+            ////
+            //manejadorClientes.ClienteAgregado += FrmManejadorClientes_ClienteAgregado;
+            //manejadorClientes.ClienteActualizado += FrmManejadorClientes_ClienteActualizado;
+
+
+            ////
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="cliente"></param>
+        private void FrmManejadorClientes_ClienteAgregado(Cliente cliente)
+        {
+            // Lógica para manejar la adición de clientes desde FrmManejadorClientes
+            Console.WriteLine($"Cliente agregado desde FrmManejadorClientes: {cliente.Nombre}");
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="cliente"></param>
+        private void FrmManejadorClientes_ClienteActualizado(Cliente cliente)
+        {
+            // Lógica para manejar la actualización de clientes desde FrmManejadorClientes
+            Console.WriteLine($"Cliente actualizado desde FrmManejadorClientes: {cliente.Nombre}");
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="cliente"></param>
+        private void FrmEliminar_ClienteEliminado(Cliente cliente)
+        {
+            // Lógica para manejar la eliminación de clientes desde FrmEliminar
+            MessageBox.Show($"Cliente eliminado desde FrmEliminar: {cliente.Nombre}");
+        }
+    
 
         public void ActualizarVisor()
         {
@@ -108,7 +144,9 @@ namespace WinForms
             }
             Cliente cliente = this.clientes[index];
             FrmEliminar frmEliminar = new FrmEliminar("cliente", cliente);
+            frmEliminar.ClienteEliminado += FrmEliminar_ClienteEliminado;
             frmEliminar.ShowDialog();
+            frmEliminar.OnClienteEliminado(this.clientes[index]);
             if (frmEliminar.Respuesta)
             {
                 try
@@ -121,6 +159,7 @@ namespace WinForms
                 }
 
                 this.clientes.RemoveAt(index);
+                
                 this.ActualizarVisor();
             }
 
@@ -316,7 +355,6 @@ namespace WinForms
             // Muestra la fecha y hora actual en el formato deseado
             lblHora.Text = DateTime.Now.ToString("HH:mm:ss dd/MM/yyyy");
         }
-
 
         protected virtual void OnEscKeyPressed()
         {
