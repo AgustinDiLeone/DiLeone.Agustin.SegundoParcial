@@ -29,6 +29,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Excepciónes", "Exceptions\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eventos", "Eventos\Eventos.csproj", "{5D98A79B-455A-447D-BA5E-81E022462E4C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interfaces", "Interfaces\Interfaces.csproj", "{43BDA4CE-9C1A-4112-95FB-395EFCC91DA1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,10 @@ Global
 		{5D98A79B-455A-447D-BA5E-81E022462E4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D98A79B-455A-447D-BA5E-81E022462E4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D98A79B-455A-447D-BA5E-81E022462E4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43BDA4CE-9C1A-4112-95FB-395EFCC91DA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43BDA4CE-9C1A-4112-95FB-395EFCC91DA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43BDA4CE-9C1A-4112-95FB-395EFCC91DA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43BDA4CE-9C1A-4112-95FB-395EFCC91DA1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
