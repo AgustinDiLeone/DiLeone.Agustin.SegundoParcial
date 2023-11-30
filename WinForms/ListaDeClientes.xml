@@ -24,7 +24,7 @@
         <Marca>Philips</Marca>
         <Modelo>AKD265</Modelo>
         <PrecioUnitario>800000</PrecioUnitario>
-        <TipoFactura>A</TipoFactura>
+        <TipoFactura>B</TipoFactura>
         <Pulgadas>80</Pulgadas>
         <Resolucion>3200</Resolucion>
         <SmartTv>true</SmartTv>
