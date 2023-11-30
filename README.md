@@ -29,6 +29,7 @@ Contiene un proyecto de tipo Test donde se diseñaron algunos metodos para proba
 Esta aplicacion tiene una programacion multihilo, mostrandote la fecha y hora actual en la parte inferior izquierda, en un hilo secundario, para que no afecte la agilidad de la aplicacion.
 ### Eventos
 Mediante el uso de eventos propios: 
-#### Presionando la tecla "esc" se cierra los formularios principales.
+* Presionando la tecla "esc" se cierra los formularios principales.
+* Se lanza un evento cuando se confirme que exitosamente se ha hecho una cracion, modificacion o eliminacion de algun cliente o producto. Mostrandolo mediante un MessageBox la tarea realizada.
 ## Diagrama de clase
 ![ClassDiagram](https://github.com/AgustinDiLeone/DiLeone.Agustin.PrimerParcial/assets/123491937/94f88e1c-271f-4e7c-aded-86a648c4cddf)
