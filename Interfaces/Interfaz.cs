@@ -1,4 +1,5 @@
-﻿namespace Interfaces
+﻿using System.Reflection.Metadata;
+namespace Interfaces
 {
     /// <summary>
     /// Interfaz para usar eventos cuando se haga algun CUD 
@@ -10,9 +11,5 @@
         void Agregado(T entidad);
         void Actualizado(T entidad);
         void Eliminado(T entidad);
-
-        //delegate void EscKeyPressedEventHandler(object sender, EventArgs e);
-
-        //event EscKeyPressedEventHandler EscKeyPressed;
     }
 }
